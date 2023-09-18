@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一个简单的HTML页面并嵌入JavaScript代码</title>
+<!-- 引入字体文件 -->
+<link rel="stylesheet" href="path/to/PingFang-Regular.ttf">
+<!-- 设置全局字体 -->
+<style>
+  body {
+      font-family: 'PingFang-Regular.ttf';
+  }
+</style>
+</head>
+<body>
+<h1>Hello, World!</h1>
+<script>
+  // 获取当前时间
+  const currentTime = new Date();
+  // 将时间格式化为字符串
+  const formattedTime = currentTime.toISOString();
+  // 在网页上显示时间
+  document.body.innerHTML += `<p>当前时间: ${formattedTime}</p>`;
+
+  // 每秒更新一次时间
+  setInterval(() => {
+      const updatedTime = new Date();
+      const updatedFormattedTime = updatedTime.toISOString();
+      document.body.innerHTML = document.body.innerHTML.replace(/当前时间: .+/, `当前时间: ${updatedFormattedTime}`);
+  }, 1000);
+</script>
+</body>
+</html>
